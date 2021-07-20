@@ -1,0 +1,24 @@
+{
+  "name": "esbuild-plugin-node-polyfills",
+  "version": "1.0.0",
+  "description": "Provides NodeJS Polyfills for ESBuild; similar to Webpack's \"node\" option.",
+  "main": "index.js",
+  "repository": "git@github.com:sinnaj-r/esbuild-plugin-node-polyfills.git",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "esbuild": "^0.12.15",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
+    "util": "^0.12.4"
+  }
+}
