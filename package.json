@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-node-polyfills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides NodeJS Polyfills for ESBuild; similar to Webpack's \"node\" option.",
   "main": "index.js",
   "repository": "git@github.com:sinnaj-r/esbuild-plugin-node-polyfills.git",
