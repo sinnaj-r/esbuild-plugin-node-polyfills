@@ -1,4 +1,4 @@
-export const ESBuildNodePolyfillsPlugin = {
+const ESBuildNodePolyfillsPlugin = {
   name: "ESBuildNodePolyfillsPlugin",
   setup(build) {
     const nodeGlobalsToBeIgnored = /^((tls)|(assert)|(fs)|(net))$/;
@@ -103,4 +103,4 @@ export const ESBuildNodePolyfillsPlugin = {
   },
 };
 
-export default SAPCloudSDKPolyfillPlugin;
+module.exports = SAPCloudSDKPolyfillPlugin;

@@ -9,7 +9,7 @@ Provides NodeJS Polyfills similar to Webpack's "node" option
 3. Use in your ESBuild Script:
 
 ```js
-import { ESBuildNodePolyfillsPlugin } from "esbuild-plugin-node-polyfills";
+const ESBuildNodePolyfillsPlugin = require("esbuild-plugin-node-polyfills");
 
 // Your ESBuild Config
 const config = {
