@@ -1,3 +1,4 @@
+const path = require("path");
 const ESBuildNodePolyfillsPlugin = {
   name: "ESBuildNodePolyfillsPlugin",
   setup(build) {
@@ -13,13 +14,7 @@ const ESBuildNodePolyfillsPlugin = {
           /(_stream_duplex)|(_stream_passthrough)|(_stream_readable)|(_stream_transform)|(_stream_writable)/,
       },
       (args) => {
-        const pPrefix = [
-          __dirname,
-          "../",
-          "node_modules",
-          "readable-stream",
-          "lib",
-        ];
+        const pPrefix = [__dirname, "../", "readable-stream", "lib"];
         let p;
         if (args.path.includes("_stream_duplex"))
           p = path.join(...pPrefix, "_stream_duplex.js");
@@ -37,13 +32,7 @@ const ESBuildNodePolyfillsPlugin = {
 
     // Special Case for the "SAP Cloud SDK for JavaScript"
     build.onResolve({ filter: /.*\/internal\/streams\/stream/ }, (args) => ({
-      path: path.join(
-        __dirname,
-        "../",
-        "node_modules",
-        "stream-browserify",
-        "index.js"
-      ),
+      path: path.join(__dirname, "../", "stream-browserify", "index.js"),
     }));
 
     // Resolve other packages
@@ -53,7 +42,7 @@ const ESBuildNodePolyfillsPlugin = {
           /^((buffer)|(crypto)|(http)|(https)|(os)|(path)|(stream)|(zlib)|(url)|(events)|(process)|(util))$/,
       },
       (args) => {
-        const pPrefix = [__dirname, "../", "node_modules"];
+        const pPrefix = [__dirname, "../"];
         let p;
         switch (args.path) {
           case "buffer":
@@ -103,4 +92,4 @@ const ESBuildNodePolyfillsPlugin = {
   },
 };
 
-module.exports = SAPCloudSDKPolyfillPlugin;
+module.exports = ESBuildNodePolyfillsPlugin;
