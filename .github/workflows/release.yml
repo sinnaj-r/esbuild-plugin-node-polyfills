@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    # Only release on push to main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    # Waits for test jobs for each Node.js version to complete
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install
+        run: yarn --frozen-lockfile
+      - name: Release
+        run: yarn semantic-release
